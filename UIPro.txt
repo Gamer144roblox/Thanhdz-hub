@@ -13,7 +13,6 @@ local Window = Fluent:CreateWindow({
 local Tabs = {
     Discord = Window:AddTab({Title = "Hồ Sơ", Icon = "book"}),
     Main = Window:AddTab({Title = "Main", Icon = "home"}),
-    Setting = Window:AddTab({Title = "Cài đặt ", Icon = "settings"}),
     Stats = Window:AddTab({Title = "Chỉ Số", Icon = "plus-circle"}),
     Player = Window:AddTab({Title = "Player", Icon = "baby"}),
     Teleport = Window:AddTab({Title = "tele", Icon = "palmtree"}),
