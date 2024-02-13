@@ -6,7 +6,7 @@ local Window = Fluent:CreateWindow({
     SubTitle = "By Huy",
     TabWidth = 160,
     Size = UDim2.fromOffset(530, 350),
-    Acrylic = true,
+    Acrylic = false,
     Theme = "Aqua",
     MinimizeKey = Enum.KeyCode.End
 })
@@ -6192,7 +6192,6 @@ end)
 
 
 
-
 local Mastery = Tabs.Race:AddSection("Tự Động Luyện TỘc")
 
 local ToggleAutoAcientQuest = Tabs.Race:AddToggle("ToggleAutoAcientQuest", {Title = "Cày + Bật Tộc",Description = "", Default = false })
@@ -6461,6 +6460,8 @@ Tabs.Misc:AddButton(
     }
 )
 
+
+
 Tabs.Misc:AddButton(
     {
         Title = "Hop Server",
@@ -6554,6 +6555,8 @@ function Hop()
     end
     Teleport()
 end
+
+
 
 local Mastery = Tabs.Misc:AddSection("Team")
 
