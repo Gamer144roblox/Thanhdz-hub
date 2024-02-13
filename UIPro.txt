@@ -6268,726 +6268,903 @@ while wait() do
 end
 end)
 
-local ToggleRandomBone = Tabs.Shop:AddToggle("ToggleRandomBone", {Title = "Đổi xương",Description = "", Default = false })
-ToggleRandomBone:OnChanged(function(Value)  
-		_G.AutoRandomBone = Value
-end)
+local ToggleRandomBone = Tabs.Shop:AddToggle("ToggleRandomBone", {Title = "Random Bone", Default = false})
+ToggleRandomBone:OnChanged(
+    function(Value)
+        _G.AutoRandomBone = Value
+    end
+)
 Options.ToggleRandomBone:SetValue(false)
-	
-spawn(function()
-	while wait(0.0000000000000000000001) do
-	if _G.AutoRandomBone then
-	local args = {
-	 [1] = "Bones",
-	 [2] = "Buy",
-	 [3] = 1,
-	 [4] = 1
-	}
-	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-	end
-	end
-	end)
 
+spawn(
+    function()
+        while wait(0.0000000000000000000000000000000000000000000000000001) do
+            if _G.AutoRandomBone then
+                local args = {
+                    [1] = "Bones",
+                    [2] = "Buy",
+                    [3] = 1,
+                    [4] = 1
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end
+    end
+)
 
-Tabs.Shop:AddButton({
-	Title = "Mua nhảy liên tục",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
-	end
-})
+Tabs.Shop:AddButton(
+    {
+        Title = "Geppo",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Geppo")
+        end
+    }
+)
 
+Tabs.Shop:AddButton(
+    {
+        Title = "Buso Haki",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Buso")
+        end
+    }
+)
 
+Tabs.Shop:AddButton(
+    {
+        Title = "Soru",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki", "Soru")
+        end
+    }
+)
 
-Tabs.Shop:AddButton({
-	Title = "Mua haki vũ trang",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
-	end
-})
-
-
-
-
-Tabs.Shop:AddButton({
-	Title = "Mua dịch chuyển (soru)",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
-	end
-})
-
-
-Tabs.Shop:AddButton({
-	Title = "Mua haki quan sát",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
-	end
-})
+Tabs.Shop:AddButton(
+    {
+        Title = "Ken Haki",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk", "Buy")
+        end
+    }
+)
 
 local Mastery = Tabs.Shop:AddSection("Fighting Styles")
 
+Tabs.Shop:AddButton(
+    {
+        Title = "Black Leg",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+        end
+    }
+)
 
-Tabs.Shop:AddButton({
-	Title = "Mua black leg",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
-	end
-})
+Tabs.Shop:AddButton(
+    {
+        Title = "Electro",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Fishman Karate",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Dragon Claw",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "1")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "DragonClaw", "2")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Superhuman",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Death Step",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Sharkman Karate",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate", true)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Electric Claw",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Dragon Talon",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Godhuman",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
+        end
+    }
+)
 
-Tabs.Shop:AddButton({
-	Title = "Mua electro",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Mua fishman karate",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Mua dragon claw",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Mua superhuman",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Death Step",
-	Description = "Mua Death Step",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Mua sharkman karate",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Mua electric claw",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Mua dragon talon",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Mua godhuman",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-	end
-})
+local Mastery = Tabs.Shop:AddSection("Misc Items")
 
+Tabs.Shop:AddButton(
+    {
+        Title = "Refund Stats",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Refund", "1")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Refund", "2")
+        end
+    }
+)
+Tabs.Shop:AddButton(
+    {
+        Title = "Reroll Race",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Reroll", "1")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward", "Reroll", "2")
+        end
+    }
+)
 
-local Mastery = Tabs.Shop:AddSection("Vật Phẩm Khác")
+Tabs.Misc:AddButton(
+    {
+        Title = "Rejoin Server",
+        Description = "",
+        Callback = function()
+            game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+        end
+    }
+)
 
-Tabs.Shop:AddButton({
-	Title = "Hoàn trả chỉ số",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","2")
-	end
-})
-Tabs.Shop:AddButton({
-	Title = "Đổi tộc",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","1")
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
-	end
-})
-
-Tabs.Misc:AddButton({
-	Title = "tham gia lại máy chủ",
-	Description = "",
-	Callback = function()
-		game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
-	end
-})
-
-
-Tabs.Misc:AddButton({
-	Title = "Đổi máy chủ",
-	Description = "",
-	Callback = function()
-		Hop()
-	end
-})
+Tabs.Misc:AddButton(
+    {
+        Title = "Hop Server",
+        Description = "",
+        Callback = function()
+            Hop()
+        end
+    }
+)
 
 function Hop()
-	local PlaceID = game.PlaceId
-	local AllIDs = {}
-	local foundAnything = ""
-	local actualHour = os.date("!*t").hour
-	local Deleted = false
-	function TPReturner()
-		local Site;
-		if foundAnything == "" then
-			Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
-		else
-			Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
-		end
-		local ID = ""
-		if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
-			foundAnything = Site.nextPageCursor
-		end
-		local num = 0;
-		for i,v in pairs(Site.data) do
-			local Possible = true
-			ID = tostring(v.id)
-			if tonumber(v.maxPlayers) > tonumber(v.playing) then
-				for _,Existing in pairs(AllIDs) do
-					if num ~= 0 then
-						if ID == tostring(Existing) then
-							Possible = false
-						end
-					else
-						if tonumber(actualHour) ~= tonumber(Existing) then
-							local delFile = pcall(function()
-								AllIDs = {}
-								table.insert(AllIDs, actualHour)
-							end)
-						end
-					end
-					num = num + 1
-				end
-				if Possible == true then
-					table.insert(AllIDs, ID)
-					wait()
-					pcall(function()
-						wait()
-						game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
-					end)
-					wait(4)
-				end
-			end
-		end
-	end
-	function Teleport() 
-		while wait() do
-			pcall(function()
-				TPReturner()
-				if foundAnything ~= "" then
-					TPReturner()
-				end
-			end)
-		end
-	end
-	Teleport()
-end      
-
-
-local Mastery = Tabs.Misc:AddSection("Đội")
-
-
-Tabs.Misc:AddButton({
-	Title = "Vào hải tặc",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Pirates") 
-	end
-})
-
-
-Tabs.Misc:AddButton({
-	Title = "Vào hải quân",
-	Description = "",
-	Callback = function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam","Marines") 
-	end
-})
-
-local Mastery = Tabs.Misc:AddSection("Mở Ui")
-
-Tabs.Misc:AddButton({
-	Title = "Mở cửa hàng trái",
-	Description = "",
-	Callback = function()
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
-        game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
-	end
-})
-
-
-
-Tabs.Misc:AddButton({
-	Title = "Mở bảng haki",
-	Description = "",
-	Callback = function()
-		game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
-	end
-})
-
-
-
-Tabs.Misc:AddButton({
-	Title = "Mở bảng danh hiệu",
-	Description = "",
-	Callback = function()
-		local args = {
-			[1] = "getTitles"
-		}
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-		game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
-	end
-})
-
-
-
-Tabs.Misc:AddButton({
-	Title = "Mở bảng thức tỉnh chiêu",
-	Description = "",
-	Callback = function()
-        game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
-	end
-})
-
-local Mastery = Tabs.Misc:AddSection("Khác")
-
-
-local ToggleRejoin = Tabs.Misc:AddToggle("ToggleRejoin", {Title = "Tự động vào lại khi bị văng", Description = "",Default = true })
-ToggleRejoin:OnChanged(function(Value)
-	_G.AutoRejoin = Value
-end)
-
-Options.ToggleRejoin:SetValue(true)
-spawn(function()
-	while wait() do
-		if _G.AutoRejoin then
-				getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(child)
-					if child.Name == 'ErrorPrompt' and child:FindFirstChild('MessageArea') and child.MessageArea:FindFirstChild("ErrorFrame") then
-						game:GetService("TeleportService"):Teleport(game.PlaceId)
-					end
-				 end)
-			end
-		end
-	end)
-
-
-
-    local Mastery = Tabs.Misc:AddSection("Kaitun Cap")
-
-Tabs.Misc:AddButton({
-	Title = "Hiện thị vật phẩm",
-	Description = "",
-	Callback = function()
-		do
-			local ui = game:GetService("CoreGui").RobloxGui.Modules.Profile:FindFirstChild("UILibrary")
-			if ui then ui:Destroy() end
-		end
-		local UserInputService = game:GetService("UserInputService")
-		local TweenService = game:GetService("TweenService")
-		local RunService = game:GetService("RunService")
-		local LocalPlayer = game:GetService("Players").LocalPlayer
-		local Mouse = LocalPlayer:GetMouse()
-	
-		do
-			local ui = game:GetService("Lighting"):FindFirstChild("Blur")
-			if ui then ui:Destroy() end
-		end
-	
-		local Blur = Instance.new("BlurEffect")
-	
-		TweenService:Create(
-			Blur,
-			TweenInfo.new(.4, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
-			{ Size = 50 }
-		):Play()
-		Blur.Parent = game.Lighting
-	
-		local UIStroke = Instance.new("UIStroke")
-		local UICorner = Instance.new("UICorner")
-	
-		local ScreenGui = Instance.new("ScreenGui")
-		local ImageButton = Instance.new("ImageButton")
-		local RobloxButton = Enum.ButtonStyle.RobloxButton
-	
-		ScreenGui.Parent = game.CoreGui
-		ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	
-	
-		local cac = require(game:GetService("Players").LocalPlayer.PlayerGui.Main.UIController.Inventory)
-		local Inventory = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
-		local Items = {}
-		local RaityLevel = { "Mythical", "Legendary", "Rare", "Uncommon", "Common" }
-		local RaityColor = {
-			["Common"] = Color3.fromRGB(179, 179, 179),
-			["Uncommon"] = Color3.fromRGB(92, 140, 211),
-			["Rare"] = Color3.fromRGB(140, 82, 255),
-			["Legendary"] = Color3.fromRGB(213, 43, 228),
-			["Mythical"] = Color3.fromRGB(238, 47, 50)
-		}
-		function GetRaity(color)
-			for k, v in pairs(RaityColor) do
-				if v == color then return k end
-			end
-		end
-	
-		for k, v in pairs(Inventory) do
-			Items[v.Name] = v
-		end
-	
-		local total = #getupvalue(cac.UpdateRender, 4)
-		local rac = {}
-		local allitem = {}
-		local total2 = 0
-		while total2 < total do
-			local i = 0
-			while i < 25000 and total2 < total do
-				game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.CanvasPosition =
-					Vector2.new(0, i)
-				for k, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.Frame:GetChildren()) do
-					if v:IsA("Frame") and not rac[v.ItemName.Text] and v.ItemName.Visible == true then
-						local vaihuhu = GetRaity(v.Background.BackgroundColor3)
-						if vaihuhu then
-							if not allitem[vaihuhu] then
-								allitem[vaihuhu] = {}
-							end
-							table.insert(allitem[vaihuhu], v:Clone())
-						end
-						total2 = total2 + 1
-						rac[v.ItemName.Text] = true
-					end
-				end
-				i = i + 20
-			end
-			wait()
-		end
-		function GetXY(vec)
-			return vec * 100
-		end
-	
-		local tvk = Instance.new("UIListLayout")
-		tvk.FillDirection = Enum.FillDirection.Vertical
-		tvk.SortOrder = 2
-		tvk.Padding = UDim.new(0, 10)
-	
-		local Left = Instance.new("Frame", game.Players.LocalPlayer.PlayerGui.BubbleChat)
-		Left.BackgroundTransparency = 1
-		Left.Size = UDim2.new(.5, 0, 1, 0)
-		tvk.Parent = Left
-	
-		local Right = Instance.new("Frame", game.Players.LocalPlayer.PlayerGui.BubbleChat)
-		Right.BackgroundTransparency = 1
-		Right.Size = UDim2.new(.5, 0, 1, 0)
-		Right.Position = UDim2.new(.6, 0, 0, 0)
-		tvk:Clone().Parent = Right
-		for k, v in pairs(allitem) do
-			local cac = Instance.new("Frame", Left)
-			cac.BackgroundTransparency = 1
-			cac.Size = UDim2.new(1, 0, 0, 0)
-			cac.LayoutOrder = table.find(RaityLevel, k)
-	
-			local cac2 = Instance.new("Frame", Right)
-			cac2.BackgroundTransparency = 1
-			cac2.Size = UDim2.new(1, 0, 0, 0)
-			cac2.LayoutOrder = table.find(RaityLevel, k)
-	
-			local tvk = Instance.new("UIGridLayout", cac)
-			tvk.CellPadding = UDim2.new(.005, 0, .005, 0)
-			tvk.CellSize = UDim2.new(0, 70, 0, 70)
-			tvk.FillDirectionMaxCells = 100
-			tvk.FillDirection = Enum.FillDirection.Horizontal
-	
-			local ccc = tvk:Clone()
-			ccc.Parent = cac2
-			for k, v in pairs(v) do
-				if Items[v.ItemName.Text] and Items[v.ItemName.Text].Mastery then
-					if v.ItemLine2.Text ~= "Accessory" then
-						local bucac                  = v.ItemName:Clone()
-						bucac.BackgroundTransparency = 1
-						bucac.TextSize               = 10
-						bucac.TextXAlignment         = 2
-						bucac.TextYAlignment         = 2
-						bucac.ZIndex                 = 5
-						bucac.Text                   = Items[v.ItemName.Text].Mastery
-						bucac.Size                   = UDim2.new(.5, 0, .5, 0)
-						bucac.Position               = UDim2.new(.5, 0, .5, 0)
-						bucac.Parent                 = v
-					end
-					v.Parent = cac
-				elseif v.ItemLine2.Text == "Blox Fruit" then
-					v.Parent = cac2
-				end
-			end
-			cac.AutomaticSize = 2
-			cac2.AutomaticSize = 2
-		end
-		local ListHuhu = {
-			["Superhuman"] = Vector2.new(3, 2),
-			["DeathStep"] = Vector2.new(4, 3),
-			["ElectricClaw"] = Vector2.new(2, 0),
-			["SharkmanKarate"] = Vector2.new(0, 0),
-			["DragonTalon"] = Vector2.new(1, 5)
-		}
-		local MeleeG = Instance.new("Frame", Left)
-		MeleeG.BackgroundTransparency = 1
-		MeleeG.Size = UDim2.new(1, 0, 0, 0)
-		MeleeG.LayoutOrder = table.find(RaityLevel, k)
-		MeleeG.AutomaticSize = 2
-		MeleeG.LayoutOrder = 100
-		local tvk = Instance.new("UIGridLayout", MeleeG)
-		tvk.CellPadding = UDim2.new(.005, 0, .005, 0)
-		tvk.CellSize = UDim2.new(0, 70, 0, 70)
-		tvk.FillDirectionMaxCells = 100
-		tvk.FillDirection = Enum.FillDirection.Horizontal
-	
-		local cac = { "Superhuman", "ElectricClaw", "DragonTalon", "SharkmanKarate", "DeathStep", "GodHuman" }
-		for k, v in pairs(cac) do
-			if ListHuhu[v] and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buy" .. v, true) == 1 then
-				local huhu = Instance.new("ImageLabel", MeleeG)
-				huhu.Image = "rbxassetid://16305891174"
-				huhu.ImageRectSize = Vector2.new(100, 100)
-				huhu.ImageRectOffset = ListHuhu[v] * 100
-			end
-		end
-		function formatNumber(v)
-			return tostring(v):reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
-		end
-	
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli.AnchorPoint = Vector2.new(0.5, 0.5)
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli.Position = UDim2.new(0, 1120, 0, 700)
-	
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Level.AnchorPoint = Vector2.new(0.5, 0.5)
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.Level.Position = UDim2.new(0, 1150, 0, 750)
-		local Name = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
-		Name.Name = "Name"
-		Name.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli
-		Name.Position = UDim2.new(0, 0, -1.5, 0)
-		Name.Size = UDim2.new(1, 0, 1, 0)
-		Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Name.Text = game.Players.LocalPlayer.Name
-	
-		local Fragments = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
-		Fragments.Name = "FragmentsCheck"
-		Fragments.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli
-		Fragments.Position = UDim2.new(0, 0, -0.75, 0)
-		Fragments.Size = UDim2.new(1, 0, 1, 0)
-		Fragments.Text = 'ƒ' .. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
-		local args = {
-			[1] = "getAwakenedAbilities"
-		}
-	
-		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-		game.Players.LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Position = UDim2.new(0.48, 10, 0.908, 2)
-		game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Size = UDim2.new(1, 0, 0.22, 0)
-	
-	
-		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
-		end)
-		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.RaceEnergy.Visible = false
-		end)
-		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible = false
-		end)
-		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.HP.Visible = false
-		end)
-		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Backpack.Enabled.Visible = false
-		end)
-		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.Energy.Visible = false
-		end)
-		for k, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main:GetChildren()) do
-			if v:IsA("ImageButton") then
-				v:Destroy()
-			end
-		end
-		pcall(function()
-			game:GetService("Players").LocalPlayer.PlayerGui.Main.Compass.Visible = false
-		end)
-	end
-})
-
-local Mastery = Tabs.Misc:AddSection("Ngày")
-
-Tabs.Misc:AddButton({
-	Title = "Xóa xương mù",
-	Description = "",
-	Callback = function()
-        NoFog()
-    end
-})
-function NoFog()
-    local c = game.Lighting
-    c.FogEnd = 100000
-    for r, v in pairs(c:GetDescendants()) do
-        if v:IsA("Atmosphere") then
-            v:Destroy()
+    local PlaceID = game.PlaceId
+    local AllIDs = {}
+    local foundAnything = ""
+    local actualHour = os.date("!*t").hour
+    local Deleted = false
+    function TPReturner()
+        local Site
+        if foundAnything == "" then
+            Site =
+                game.HttpService:JSONDecode(
+                game:HttpGet(
+                    "https://games.roblox.com/v1/games/" .. PlaceID .. "/servers/Public?sortOrder=Asc&limit=100"
+                )
+            )
+        else
+            Site =
+                game.HttpService:JSONDecode(
+                game:HttpGet(
+                    "https://games.roblox.com/v1/games/" ..
+                        PlaceID .. "/servers/Public?sortOrder=Asc&limit=100&cursor=" .. foundAnything
+                )
+            )
+        end
+        local ID = ""
+        if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+            foundAnything = Site.nextPageCursor
+        end
+        local num = 0
+        for i, v in pairs(Site.data) do
+            local Possible = true
+            ID = tostring(v.id)
+            if tonumber(v.maxPlayers) > tonumber(v.playing) then
+                for _, Existing in pairs(AllIDs) do
+                    if num ~= 0 then
+                        if ID == tostring(Existing) then
+                            Possible = false
+                        end
+                    else
+                        if tonumber(actualHour) ~= tonumber(Existing) then
+                            local delFile =
+                                pcall(
+                                function()
+                                    AllIDs = {}
+                                    table.insert(AllIDs, actualHour)
+                                end
+                            )
+                        end
+                    end
+                    num = num + 1
+                end
+                if Possible == true then
+                    table.insert(AllIDs, ID)
+                    wait()
+                    pcall(
+                        function()
+                            wait()
+                            game:GetService("TeleportService"):TeleportToPlaceInstance(
+                                PlaceID,
+                                ID,
+                                game.Players.LocalPlayer
+                            )
+                        end
+                    )
+                    wait(4)
+                end
+            end
         end
     end
+    function Teleport()
+        while wait() do
+            pcall(
+                function()
+                    TPReturner()
+                    if foundAnything ~= "" then
+                        TPReturner()
+                    end
+                end
+            )
+        end
+    end
+    Teleport()
 end
 
+local Mastery = Tabs.Misc:AddSection("Team")
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Join Pirates Team",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam", "Pirates")
+        end
+    }
+)
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Join Marines Team",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetTeam", "Marines")
+        end
+    }
+)
+
+local Mastery = Tabs.Misc:AddSection("Open Ui")
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Devil Shop Menu",
+        Description = "",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.FruitShop.Visible = true
+        end
+    }
+)
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Color Haki Menu",
+        Description = "",
+        Callback = function()
+            game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
+        end
+    }
+)
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Title Name Menu",
+        Description = "",
+        Callback = function()
+            local args = {
+                [1] = "getTitles"
+            }
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            game.Players.localPlayer.PlayerGui.Main.Titles.Visible = true
+        end
+    }
+)
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Awakening Menu",
+        Description = "",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
+        end
+    }
+)
+
+local Mastery = Tabs.Misc:AddSection("Troll")
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Rain Fruit",
+        Description = "Rain fruit (Fake)",
+        Callback = function()
+            for i, v in pairs(game:GetObjects("rbxassetid://14759368201")[1]:GetChildren()) do
+                v.Parent = game.Workspace.Map
+                v:MoveTo(
+                    game.Players.LocalPlayer.Character.PrimaryPart.Position +
+                        Vector3.new(math.random(-50, 50), 100, math.random(-50, 50))
+                )
+                if v.Fruit:FindFirstChild("AnimationController") then
+                    v.Fruit:FindFirstChild("AnimationController"):LoadAnimation(v.Fruit:FindFirstChild("Idle")):Play()
+                end
+                v.Handle.Touched:Connect(
+                    function(otherPart)
+                        if otherPart.Parent == game.Players.LocalPlayer.Character then
+                            v.Parent = game.Players.LocalPlayer.Backpack
+                            game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+                        end
+                    end
+                )
+            end
+        end
+    }
+)
+
+local Mastery = Tabs.Misc:AddSection("Misc")
+
+local ToggleRejoin = Tabs.Misc:AddToggle("ToggleRejoin", {Title = "Auto Rejoin", Default = true})
+ToggleRejoin:OnChanged(
+    function(Value)
+        _G.AutoRejoin = Value
+    end
+)
+
+Options.ToggleRejoin:SetValue(true)
+spawn(
+    function()
+        while wait() do
+            if _G.AutoRejoin then
+                getgenv().rejoin =
+                    game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(
+                    function(child)
+                        if
+                            child.Name == "ErrorPrompt" and child:FindFirstChild("MessageArea") and
+                                child.MessageArea:FindFirstChild("ErrorFrame")
+                         then
+                            game:GetService("TeleportService"):Teleport(game.PlaceId)
+                        end
+                    end
+                )
+            end
+        end
+    end
+)
+
+local Mastery = Tabs.Misc:AddSection("Kaitun Cap")
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Show Items",
+        Description = "",
+        Callback = function()
+            do
+                local ui = game:GetService("CoreGui").RobloxGui.Modules.Profile:FindFirstChild("UILibrary")
+                if ui then
+                    ui:Destroy()
+                end
+            end
+            local UserInputService = game:GetService("UserInputService")
+            local TweenService = game:GetService("TweenService")
+            local RunService = game:GetService("RunService")
+            local LocalPlayer = game:GetService("Players").LocalPlayer
+            local Mouse = LocalPlayer:GetMouse()
+
+            do
+                local ui = game:GetService("Lighting"):FindFirstChild("Blur")
+                if ui then
+                    ui:Destroy()
+                end
+            end
+
+            local Blur = Instance.new("BlurEffect")
+
+            TweenService:Create(Blur, TweenInfo.new(.4, Enum.EasingStyle.Back, Enum.EasingDirection.InOut), {Size = 50}):Play(
+
+            )
+            Blur.Parent = game.Lighting
+
+            local UIStroke = Instance.new("UIStroke")
+            local UICorner = Instance.new("UICorner")
+
+            local ScreenGui = Instance.new("ScreenGui")
+            local ImageButton = Instance.new("ImageButton")
+            local RobloxButton = Enum.ButtonStyle.RobloxButton
+
+            ScreenGui.Parent = game.CoreGui
+            ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+            local cac = require(game:GetService("Players").LocalPlayer.PlayerGui.Main.UIController.Inventory)
+            local Inventory = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
+            local Items = {}
+            local RaityLevel = {"Mythical", "Legendary", "Rare", "Uncommon", "Common"}
+            local RaityColor = {
+                ["Common"] = Color3.fromRGB(179, 179, 179),
+                ["Uncommon"] = Color3.fromRGB(92, 140, 211),
+                ["Rare"] = Color3.fromRGB(140, 82, 255),
+                ["Legendary"] = Color3.fromRGB(213, 43, 228),
+                ["Mythical"] = Color3.fromRGB(238, 47, 50)
+            }
+            function GetRaity(color)
+                for k, v in pairs(RaityColor) do
+                    if v == color then
+                        return k
+                    end
+                end
+            end
+
+            for k, v in pairs(Inventory) do
+                Items[v.Name] = v
+            end
+
+            local total = #getupvalue(cac.UpdateRender, 4)
+            local rac = {}
+            local allitem = {}
+            local total2 = 0
+            while total2 < total do
+                local i = 0
+                while i < 25000 and total2 < total do
+                    game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.CanvasPosition =
+                        Vector2.new(0, i)
+                    for k, v in pairs(
+                        game:GetService("Players").LocalPlayer.PlayerGui.Main.InventoryContainer.Right.Content.ScrollingFrame.Frame:GetChildren(
+
+                        )
+                    ) do
+                        if v:IsA("Frame") and not rac[v.ItemName.Text] and v.ItemName.Visible == true then
+                            local vaihuhu = GetRaity(v.Background.BackgroundColor3)
+                            if vaihuhu then
+                                if not allitem[vaihuhu] then
+                                    allitem[vaihuhu] = {}
+                                end
+                                table.insert(allitem[vaihuhu], v:Clone())
+                            end
+                            total2 = total2 + 1
+                            rac[v.ItemName.Text] = true
+                        end
+                    end
+                    i = i + 20
+                end
+                wait()
+            end
+            function GetXY(vec)
+                return vec * 100
+            end
+
+            local tvk = Instance.new("UIListLayout")
+            tvk.FillDirection = Enum.FillDirection.Vertical
+            tvk.SortOrder = 2
+            tvk.Padding = UDim.new(0, 10)
+
+            local Left = Instance.new("Frame", game.Players.LocalPlayer.PlayerGui.BubbleChat)
+            Left.BackgroundTransparency = 1
+            Left.Size = UDim2.new(.5, 0, 1, 0)
+            tvk.Parent = Left
+
+            local Right = Instance.new("Frame", game.Players.LocalPlayer.PlayerGui.BubbleChat)
+            Right.BackgroundTransparency = 1
+            Right.Size = UDim2.new(.5, 0, 1, 0)
+            Right.Position = UDim2.new(.6, 0, 0, 0)
+            tvk:Clone().Parent = Right
+            for k, v in pairs(allitem) do
+                local cac = Instance.new("Frame", Left)
+                cac.BackgroundTransparency = 1
+                cac.Size = UDim2.new(1, 0, 0, 0)
+                cac.LayoutOrder = table.find(RaityLevel, k)
+
+                local cac2 = Instance.new("Frame", Right)
+                cac2.BackgroundTransparency = 1
+                cac2.Size = UDim2.new(1, 0, 0, 0)
+                cac2.LayoutOrder = table.find(RaityLevel, k)
+
+                local tvk = Instance.new("UIGridLayout", cac)
+                tvk.CellPadding = UDim2.new(.005, 0, .005, 0)
+                tvk.CellSize = UDim2.new(0, 70, 0, 70)
+                tvk.FillDirectionMaxCells = 100
+                tvk.FillDirection = Enum.FillDirection.Horizontal
+
+                local ccc = tvk:Clone()
+                ccc.Parent = cac2
+                for k, v in pairs(v) do
+                    if Items[v.ItemName.Text] and Items[v.ItemName.Text].Mastery then
+                        if v.ItemLine2.Text ~= "Accessory" then
+                            local bucac = v.ItemName:Clone()
+                            bucac.BackgroundTransparency = 1
+                            bucac.TextSize = 10
+                            bucac.TextXAlignment = 2
+                            bucac.TextYAlignment = 2
+                            bucac.ZIndex = 5
+                            bucac.Text = Items[v.ItemName.Text].Mastery
+                            bucac.Size = UDim2.new(.5, 0, .5, 0)
+                            bucac.Position = UDim2.new(.5, 0, .5, 0)
+                            bucac.Parent = v
+                        end
+                        v.Parent = cac
+                    elseif v.ItemLine2.Text == "Blox Fruit" then
+                        v.Parent = cac2
+                    end
+                end
+                cac.AutomaticSize = 2
+                cac2.AutomaticSize = 2
+            end
+            local ListHuhu = {
+                ["Superhuman"] = Vector2.new(3, 2),
+                ["DeathStep"] = Vector2.new(4, 3),
+                ["ElectricClaw"] = Vector2.new(2, 0),
+                ["SharkmanKarate"] = Vector2.new(0, 0),
+                ["DragonTalon"] = Vector2.new(1, 5)
+            }
+            local MeleeG = Instance.new("Frame", Left)
+            MeleeG.BackgroundTransparency = 1
+            MeleeG.Size = UDim2.new(1, 0, 0, 0)
+            MeleeG.LayoutOrder = table.find(RaityLevel, k)
+            MeleeG.AutomaticSize = 2
+            MeleeG.LayoutOrder = 100
+            local tvk = Instance.new("UIGridLayout", MeleeG)
+            tvk.CellPadding = UDim2.new(.005, 0, .005, 0)
+            tvk.CellSize = UDim2.new(0, 70, 0, 70)
+            tvk.FillDirectionMaxCells = 100
+            tvk.FillDirection = Enum.FillDirection.Horizontal
+
+            local cac = {"Superhuman", "ElectricClaw", "DragonTalon", "SharkmanKarate", "DeathStep", "GodHuman"}
+            for k, v in pairs(cac) do
+                if
+                    ListHuhu[v] and
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buy" .. v, true) == 1
+                 then
+                    local huhu = Instance.new("ImageLabel", MeleeG)
+                    huhu.Image = "rbxassetid://9945562382"
+                    huhu.ImageRectSize = Vector2.new(100, 100)
+                    huhu.ImageRectOffset = ListHuhu[v] * 100
+                end
+            end
+            function formatNumber(v)
+                return tostring(v):reverse():gsub("%d%d%d", "%1,"):reverse():gsub("^,", "")
+            end
+
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli.AnchorPoint = Vector2.new(0.5, 0.5)
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli.Position = UDim2.new(0, 1120, 0, 700)
+
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.Level.AnchorPoint = Vector2.new(0.5, 0.5)
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.Level.Position = UDim2.new(0, 1150, 0, 750)
+            local Name = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
+            Name.Name = "Name"
+            Name.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli
+            Name.Position = UDim2.new(0, 0, -1.5, 0)
+            Name.Size = UDim2.new(1, 0, 1, 0)
+            Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+            Name.Text = game.Players.LocalPlayer.Name
+
+            local Fragments = game:GetService("Players").LocalPlayer.PlayerGui.Main.Fragments:Clone()
+            Fragments.Name = "FragmentsCheck"
+            Fragments.Parent = game:GetService("Players").LocalPlayer.PlayerGui.Main.Beli
+            Fragments.Position = UDim2.new(0, 0, -0.75, 0)
+            Fragments.Size = UDim2.new(1, 0, 1, 0)
+            Fragments.Text = "ƒ" .. formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
+            local args = {
+                [1] = "getAwakenedAbilities"
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            game.Players.LocalPlayer.PlayerGui.Main.AwakeningToggler.Visible = true
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Position =
+                UDim2.new(0.48, 10, 0.908, 2)
+            game:GetService("Players").LocalPlayer.PlayerGui.Main.AwakeningToggler.Size = UDim2.new(1, 0, 0.22, 0)
+
+            pcall(
+                function()
+                    game:GetService("Players").LocalPlayer.PlayerGui.Main.MenuButton.Visible = false
+                end
+            )
+            pcall(
+                function()
+                    game:GetService("Players").LocalPlayer.PlayerGui.Main.RaceEnergy.Visible = false
+                end
+            )
+            pcall(
+                function()
+                    game:GetService("Players").LocalPlayer.PlayerGui.Main.SafeZone.Visible = false
+                end
+            )
+            pcall(
+                function()
+                    game:GetService("Players").LocalPlayer.PlayerGui.Main.HP.Visible = false
+                end
+            )
+            pcall(
+                function()
+                    game:GetService("Players").LocalPlayer.PlayerGui.Backpack.Enabled.Visible = false
+                end
+            )
+            pcall(
+                function()
+                    game:GetService("Players").LocalPlayer.PlayerGui.Main.Energy.Visible = false
+                end
+            )
+            for k, v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main:GetChildren()) do
+                if v:IsA("ImageButton") then
+                    v:Destroy()
+                end
+            end
+            pcall(
+                function()
+                    game:GetService("Players").LocalPlayer.PlayerGui.Main.Compass.Visible = false
+                end
+            )
+        end
+    }
+)
+
+local Mastery = Tabs.Misc:AddSection("Day")
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Remove Fog",
+        Description = "",
+        Callback = function()
+            game:GetService("Lighting").LightingLayers:Destroy()
+            game:GetService("Lighting").Sky:Destroy()
+        end
+    }
+)
+
+Tabs.Misc:AddButton(
+    {
+        Title = "Always Day",
+        Description = "",
+        Callback = function()
+            game:GetService("RunService").Heartbeat:wait()
+            do
+                game:GetService("Lighting").ClockTime = 12
+            end
+        end
+    }
+)
+
 if First_Sea or Second_Sea then
-    local Mastery = Tabs.Hop:AddSection("Sea 3 làm ơn!!!")
+    local Mastery = Tabs.Hop:AddSection("Thid Sea Please !!!")
 end
 
 if Third_Sea then
-local ToggleFindMoon = Tabs.Hop:AddToggle("ToggleFindMoon", {Title = "Tìm trăng tròn",Description = "", Default = false })
-ToggleFindMoon:OnChanged(function(Value)
-    _G.AutoFindMoon = Value
-end)
-Options.ToggleFindMoon:SetValue(false)
-
-
-spawn(function()
-    while wait() do
-        if _G.AutoFindMoon then
-        if game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=16305891174" or game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=16305891174" then
-            wait(2.0)
-        elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=16305891174" then
-            Hop()
-            Fluent:Notify({
-                Title = "YTB: Gamer144 Hub",
-                Content = "Turn Off Find Full Moon...",
-                SubContent = "", -- Optional
-                Duration = 5 -- Set to nil to make the notification not disappear
-            })
-        elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=16305891174" then
-            Hop()
-            Fluent:Notify({
-                Title = "YTB: Gamer144 Hub",
-                Content = "Hop...",
-                SubContent = "", -- Optional
-                Duration = 5 -- Set to nil to make the notification not disappear
-            })
-        elseif game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=16305891174" then
-            Hop()
-            Fluent:Notify({
-                Title = "YTB: Gamer144 Hub",
-                Content = "Hop...",
-                SubContent = "", -- Optional
-                Duration = 5 -- Set to nil to make the notification not disappear
-            })
-        else
-            Hop()
-            end
+    local ToggleFindMoon = Tabs.Hop:AddToggle("ToggleFindMoon", {Title = "Find Full Moon", Default = false})
+    ToggleFindMoon:OnChanged(
+        function(Value)
+            _G.AutoFindMoon = Value
         end
-    end
-end)
+    )
+    Options.ToggleFindMoon:SetValue(false)
 
-
-local ToggleMirageIsland = Tabs.Hop:AddToggle("ToggleMirageIsland", {Title = "Tìm đảo bí ẩn",Description = "", Default = false })
-ToggleMirageIsland:OnChanged(function(Value)
-    _G.FindMirageIsland = Value
-end)
-Options.ToggleMirageIsland:SetValue(false)
-
-spawn(function()
-    while wait() do
-    if _G.FindMirageIsland then
-        if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") or game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-            if HighestPointRealCFrame and (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - HighestPointRealCFrame.Position).Magnitude > 10 then
-            Tween(getHighestPoint().CFrame * CFrame.new(0, 211.88, 0))
+    spawn(
+        function()
+            while wait() do
+                if _G.AutoFindMoon then
+                    if
+                        game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149052" or
+                            game:GetService("Lighting").Sky.MoonTextureId ==
+                                "http://www.roblox.com/asset/?id=9709149431"
+                     then
+                        wait(2.0)
+                    elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709143733" then
+                        Hop()
+                        Fluent:Notify(
+                            {
+                                Title = "Fai Fao Hub",
+                                Content = "Turn Off Find Full Moon...",
+                                SubContent = "", -- Optional
+                                Duration = 5 -- Set to nil to make the notification not disappear
+                            }
+                        )
+                    elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709150401" then
+                        Hop()
+                        Fluent:Notify(
+                            {
+                                Title = "Fai Fao Hub",
+                                Content = "Hop...",
+                                SubContent = "", -- Optional
+                                Duration = 5 -- Set to nil to make the notification not disappear
+                            }
+                        )
+                    elseif game:GetService("Lighting").Sky.MoonTextureId == "http://www.roblox.com/asset/?id=9709149680" then
+                        Hop()
+                        Fluent:Notify(
+                            {
+                                Title = "Fai Fao Hub",
+                                Content = "Hop...",
+                                SubContent = "", -- Optional
+                                Duration = 5 -- Set to nil to make the notification not disappear
+                            }
+                        )
+                    else
+                        Hop()
+                    end
                 end
-        elseif not game:GetService("Workspace").Map:FindFirstChild("MysticIsland") or not game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-            Hop()
             end
         end
-    end
-end)
+    )
+
+    local ToggleMirageIsland = Tabs.Hop:AddToggle("ToggleMirageIsland", {Title = "Find Mirage Island", Default = false})
+    ToggleMirageIsland:OnChanged(
+        function(Value)
+            _G.FindMirageIsland = Value
+        end
+    )
+    Options.ToggleMirageIsland:SetValue(false)
+
+    spawn(
+        function()
+            while wait() do
+                if _G.FindMirageIsland then
+                    if
+                        game:GetService("Workspace").Map:FindFirstChild("MysticIsland") or
+                            game:GetService("Workspace").Map:FindFirstChild("MysticIsland")
+                     then
+                        if
+                            HighestPointRealCFrame and
+                                (game.Players.LocalPlayer.Character.HumanoidRootPart.Position -
+                                    HighestPointRealCFrame.Position).Magnitude > 10
+                         then
+                            Tween(getHighestPoint().CFrame * CFrame.new(0, 211.88, 0))
+                        end
+                    elseif
+                        not game:GetService("Workspace").Map:FindFirstChild("MysticIsland") or
+                            not game:GetService("Workspace").Map:FindFirstChild("MysticIsland")
+                     then
+                        Hop()
+                    end
+                end
+            end
+        end
+    )
 end
 
-local SettingFarm = Tabs.Setting:AddSection("Farming")
+local SettingFarm = Tabs.Setting:AddSection("Setting Farming")
 
+local ToggleFastAttack = Tabs.Setting:AddToggle("ToggleFastAttack", {Title = " Enable Fast Attack", Default = true})
 
-    local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = "Gom Quái",Description = "", Default = true })
-    ToggleBringMob:OnChanged(function(Value)
+ToggleFastAttack:OnChanged(
+    function(Value)
+        _G.FastAttackFaiFao = Value
+    end
+)
+Options.ToggleFastAttack:SetValue(true)
+
+spawn(
+    function()
+        while wait(0.4) do
+            pcall(
+                function()
+                    if _G.FastAttackFaiFao then
+                        repeat
+                            wait(_G.Fast_Delay)
+                            AttackNoCD()
+                        until not _G.FastAttackFaiFao
+                    end
+                end
+            )
+        end
+    end
+)
+
+local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
+Camera:Stop()
+
+local ToggleBringMob = Tabs.Setting:AddToggle("ToggleBringMob", {Title = " Enable Bring Mob / Magnet", Default = true})
+ToggleBringMob:OnChanged(
+    function(Value)
         _G.BringMob = Value
-    end)
-    Options.ToggleBringMob:SetValue(true)
-            task.spawn(function()
-                while task.wait() do
-             if _G.BringMob and bringmob then
-            pcall(function()
-                for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                if v.Name == MonFarm and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 350 then
-                if InMyNetWork(v.HumanoidRootPart) then
-                v.HumanoidRootPart.CFrame = FarmPos
-                v.Humanoid.JumpPower = 0
-                v.Humanoid.WalkSpeed = 0
-                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                v.HumanoidRootPart.CanCollide = false
-                v.Head.CanCollide = false
-                if v.Humanoid:FindFirstChild("Animator") then
-                v.Humanoid.Animator:Destroy()
+    end
+)
+Options.ToggleBringMob:SetValue(true)
+spawn(
+    function()
+        while wait() do
+            pcall(
+                function()
+                    for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if _G.BringMob and bringmob then
+                            if v.Name == MonFarm and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                if v.Name == "Factory Staff" then
+                                    if (v.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 500 then
+                                        v.Head.CanCollide = false
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
+                                        v.HumanoidRootPart.CFrame = FarmPos
+                                        if v.Humanoid:FindFirstChild("Animator") then
+                                            v.Humanoid.Animator:Destroy()
+                                        end
+                                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                                    end
+                                elseif v.Name == MonFarm then
+                                    if (v.HumanoidRootPart.Position - FarmPos.Position).Magnitude <= 450 then
+                                        v.Head.CanCollide = false
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
+                                        v.HumanoidRootPart.CFrame = FarmPos
+                                        if v.Humanoid:FindFirstChild("Animator") then
+                                            v.Humanoid.Animator:Destroy()
+                                        end
+                                        sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                                    end
+                                end
+                            end
+                        end
+                    end
                 end
-                end
-                end
-                end
-                end)
-              end
-              end
-              end)
-            
-            task.spawn(function()
-              while true do wait()
-              if setscriptable then
-              setscriptable(game.Players.LocalPlayer,"SimulationRadius",true)
-              end
-              if sethiddenproperty then
-              sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-              end
-              end
-              end)
-            
-            function InMyNetWork(object)
-            if isnetworkowner then
-            return isnetworkowner(object)
-            else
-              if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 350 then
-            return true
-            end
-            return false
-            end
-            end
-            
+            )
+        end
+    end
+)
 
-    local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Di Chuyển Dạng Reset",Description = "", Default = false })
-    ToggleBypassTP:OnChanged(function(Value)
+local ToggleBypassTP = Tabs.Setting:AddToggle("ToggleBypassTP", {Title = "Enable Bypass Tp", Default = false})
+ToggleBypassTP:OnChanged(
+    function(Value)
         BypassTP = Value
-    end)
-    Options.ToggleBypassTP:SetValue(false)
+    end
+)
+Options.ToggleBypassTP:SetValue(false)
 
+local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = " Enable Remove Dame Text", Default = true})
+ToggleRemove:OnChanged(
+    function(Value)
+        _G.RemoveDameText = Value
+    end
+)
+Options.ToggleRemove:SetValue(true)
 
-local ToggleRemove = Tabs.Setting:AddToggle("ToggleRemove", {Title = "Ẩn Dame Đánh Quái",Description = "", Default = true })
-ToggleRemove:OnChanged(function(Value)
-    _G.RemoveDameText = Value
-    end)
-    Options.ToggleRemove:SetValue(true)
-
-    spawn(function()
+spawn(
+    function()
         while wait() do
             if _G.RemoveDameText then
                 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
@@ -6995,16 +7172,20 @@ ToggleRemove:OnChanged(function(Value)
                 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = true
             end
         end
-        end)
+    end
+)
 
-        
-local ToggleRemoveNotify = Tabs.Setting:AddToggle("ToggleRemoveNotify", {Title = "Xoá Hết Thông báo",Description = "", Default = false })
-ToggleRemoveNotify:OnChanged(function(Value)
-    RemoveNotify = Value
-    end)
-    Options.ToggleRemoveNotify:SetValue(false)
+local ToggleRemoveNotify =
+    Tabs.Setting:AddToggle("ToggleRemoveNotify", {Title = " Enable Remove All Notify", Default = false})
+ToggleRemoveNotify:OnChanged(
+    function(Value)
+        RemoveNotify = Value
+    end
+)
+Options.ToggleRemoveNotify:SetValue(false)
 
-    spawn(function()
+spawn(
+    function()
         while wait() do
             if RemoveNotify then
                 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
@@ -7012,104 +7193,127 @@ ToggleRemoveNotify:OnChanged(function(Value)
                 game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = true
             end
         end
-    end)
+    end
+)
 
+local ToggleWhite = Tabs.Setting:AddToggle("ToggleWhite", {Title = " Enable White Screen", Default = false})
+ToggleWhite:OnChanged(
+    function(Value)
+        _G.WhiteScreen = Value
+        if _G.WhiteScreen == true then
+            game:GetService("RunService"):Set3dRenderingEnabled(false)
+        elseif _G.WhiteScreen == false then
+            game:GetService("RunService"):Set3dRenderingEnabled(true)
+        end
+    end
+)
+Options.ToggleWhite:SetValue(false)
 
-
-    local ToggleWhite = Tabs.Setting:AddToggle("ToggleWhite", {Title = "Màn hình Trắng (giảm lag)",Description = "", Default = false })
-    ToggleWhite:OnChanged(function(Value)
-       _G.WhiteScreen = Value
-       if _G.WhiteScreen == true then
-        game:GetService("RunService"):Set3dRenderingEnabled(false)
-    elseif _G.WhiteScreen == false then
-        game:GetService("RunService"):Set3dRenderingEnabled(true)
-            end
-        end)
-        Options.ToggleWhite:SetValue(false)
-      
-
-
-        local SKill = Tabs.Setting:AddSection("Skill Mastery")
-local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Kĩ Năng Z",Description = "", Default = true })
-ToggleZ:OnChanged(function(Value)
-    SkillZ = Value
-end)
+local SKill = Tabs.Setting:AddSection("Skill Mastery")
+local ToggleZ = Tabs.Setting:AddToggle("ToggleZ", {Title = "Skill Z", Default = true})
+ToggleZ:OnChanged(
+    function(Value)
+        SkillZ = Value
+    end
+)
 Options.ToggleZ:SetValue(true)
 
-local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title = "Kĩ Năng X", Description = "",Default = true })
-ToggleX:OnChanged(function(Value)
-    SkillX = Value
-end)
+local ToggleX = Tabs.Setting:AddToggle("ToggleX", {Title = "Skill X", Default = true})
+ToggleX:OnChanged(
+    function(Value)
+        SkillX = Value
+    end
+)
 Options.ToggleX:SetValue(true)
 
-
-local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title = "Kĩ Năng C",Description = "", Default = true })
-ToggleC:OnChanged(function(Value)
-    SkillC = Value
-end)
+local ToggleC = Tabs.Setting:AddToggle("ToggleC", {Title = "Skill C", Default = true})
+ToggleC:OnChanged(
+    function(Value)
+        SkillC = Value
+    end
+)
 Options.ToggleC:SetValue(true)
 
-
-local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title = "",Description = "", Default = true })
-ToggleV:OnChanged(function(Value)
-    SkillV = Value
-end)
+local ToggleV = Tabs.Setting:AddToggle("ToggleV", {Title = "Skill V", Default = true})
+ToggleV:OnChanged(
+    function(Value)
+        SkillV = Value
+    end
+)
 Options.ToggleV:SetValue(true)
 
-
-local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title = "Kĩ Năng F",Description = "", Default = false })
-ToggleF:OnChanged(function(Value)
-   SkillF = Value
-    end)
+local ToggleF = Tabs.Setting:AddToggle("ToggleF", {Title = "Skill F", Default = false})
+ToggleF:OnChanged(
+    function(Value)
+        SkillF = Value
+    end
+)
 Options.ToggleF:SetValue(false)
 
+local Pos = Tabs.Setting:AddSection("Distance Farm")
 
-local Pos = Tabs.Setting:AddSection("Khoảng Cách Farm")
-
-local SliderPosX = Tabs.Setting:AddSlider("SliderPosX", {
-    Title = "Hướng X",
-    Description = "",
-    Default = 0,
-    Min = -60,
-    Max = 60,
-    Rounding = 1,
-    Callback = function(Value)
-      posX = Value
+local SliderPosX =
+    Tabs.Setting:AddSlider(
+    "SliderPosX",
+    {
+        Title = "Pos X",
+        Description = "",
+        Default = 10,
+        Min = -60,
+        Max = 60,
+        Rounding = 1,
+        Callback = function(Value)
+            posX = Value
+        end
+    }
+)
+SliderPosX:OnChanged(
+    function(Value)
+        posX = Value
     end
-})
-SliderPosX:OnChanged(function(Value)
-  posX = Value
-end)
-SliderPosX:SetValue(0)
+)
+SliderPosX:SetValue(10)
 
-local SliderPosY = Tabs.Setting:AddSlider("SliderPosY", {
-    Title = "Hướng Y",
-    Description = "",
-    Default = 30,
-    Min = -60,
-    Max = 60,
-    Rounding = 1,
-    Callback = function(Value)
-      posY = Value
+local SliderPosY =
+    Tabs.Setting:AddSlider(
+    "SliderPosY",
+    {
+        Title = "Pos Y",
+        Description = "",
+        Default = 30,
+        Min = -60,
+        Max = 60,
+        Rounding = 1,
+        Callback = function(Value)
+            posY = Value
+        end
+    }
+)
+SliderPosY:OnChanged(
+    function(Value)
+        posY = Value
     end
-})
-SliderPosY:OnChanged(function(Value)
-  posY = Value
-end)
+)
 SliderPosY:SetValue(30)
 
-local SliderPosZ = Tabs.Setting:AddSlider("SliderPosZ", {
-    Title = "Hướng Z",
-    Description = "",
-    Default = 0,
-    Min = -60,
-    Max = 60,
-    Rounding = 1,
-    Callback = function(Value)
-      posZ = Value
+local SliderPosZ =
+    Tabs.Setting:AddSlider(
+    "SliderPosZ",
+    {
+        Title = "Pos Z",
+        Description = "",
+        Default = 10,
+        Min = -60,
+        Max = 60,
+        Rounding = 1,
+        Callback = function(Value)
+            posZ = Value
+        end
+    }
+)
+SliderPosZ:OnChanged(
+    function(Value)
+        posZ = Value
     end
-})
-SliderPosZ:OnChanged(function(Value)
-     posZ = Value
-end)
-SliderPosZ:SetValue(0)
+)
+SliderPosZ:SetValue(10)
